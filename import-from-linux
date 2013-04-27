@@ -13,3 +13,5 @@ for i in "${files[@]}"; do
 	fh "$LINUX_GIT" "$i" > $(basename $i).version
 done
 
+sed -i 's|^EXPORT_SYMBOL(.*);$||' rbtree.c
+sed -i 's|^#include <linux.*>$||' rbtree.c
