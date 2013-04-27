@@ -4,7 +4,7 @@ LINUX_GIT=$HOME/g/linux
 
 fh () {
 	echo fh $1 $2 1>&2
-	( cd "$1" && git show --pretty=format:%H "$2" | head; )
+	( cd "$1" && git show --pretty=format:%H "$2" | head -n1 )
 }
 
 files=( include/linux/rbtree.h include/linux/rbtree_augmented.h \
