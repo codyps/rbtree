@@ -1,0 +1,15 @@
+#! /bin/bash
+
+LINUX_GIT=$HOME/g/linux
+
+fh () {
+	( cd "$1" && git show --pretty=format:%H "$2" | head )
+}
+
+files=( include/linux/rbtree.h lib/rbtree.c Documentation/rbtree.txt )
+
+for i in "${files[@]}"; do
+	cp $LINUX_GIT/$i .
+	fh "$LINUX_GIT" "$i" > $(basename $i).version
+done
+
