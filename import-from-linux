@@ -6,7 +6,8 @@ fh () {
 	( cd "$1" && git show --pretty=format:%H "$2" | head )
 }
 
-files=( include/linux/rbtree.h lib/rbtree.c Documentation/rbtree.txt )
+files=( include/linux/rbtree.h include/linux/rbtree_augmented.h \
+	lib/rbtree.c Documentation/rbtree.txt )
 
 for i in "${files[@]}"; do
 	cp $LINUX_GIT/$i .
