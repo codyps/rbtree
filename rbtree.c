@@ -22,8 +22,6 @@
 */
 
 
-
-
 /*
  * red-black trees properties:  http://en.wikipedia.org/wiki/Rbtree
  *
@@ -367,7 +365,6 @@ void __rb_erase_color(struct rb_node *parent, struct rb_root *root,
 	____rb_erase_color(parent, root, augment_rotate);
 }
 
-
 /*
  * Non-augmented rbtree manipulation functions.
  *
@@ -388,7 +385,6 @@ void rb_insert_color(struct rb_node *node, struct rb_root *root)
 	__rb_insert(node, root, dummy_rotate);
 }
 
-
 void rb_erase(struct rb_node *node, struct rb_root *root)
 {
 	struct rb_node *rebalance;
@@ -396,7 +392,6 @@ void rb_erase(struct rb_node *node, struct rb_root *root)
 	if (rebalance)
 		____rb_erase_color(rebalance, root, dummy_rotate);
 }
-
 
 /*
  * Augmented rbtree manipulation functions.
@@ -410,7 +405,6 @@ void __rb_insert_augmented(struct rb_node *node, struct rb_root *root,
 {
 	__rb_insert(node, root, augment_rotate);
 }
-
 
 /*
  * This function returns the first node (in sort order) of the tree.
@@ -427,7 +421,6 @@ struct rb_node *rb_first(const struct rb_root *root)
 	return n;
 }
 
-
 struct rb_node *rb_last(const struct rb_root *root)
 {
 	struct rb_node	*n;
@@ -439,7 +432,6 @@ struct rb_node *rb_last(const struct rb_root *root)
 		n = n->rb_right;
 	return n;
 }
-
 
 struct rb_node *rb_next(const struct rb_node *node)
 {
@@ -472,7 +464,6 @@ struct rb_node *rb_next(const struct rb_node *node)
 	return parent;
 }
 
-
 struct rb_node *rb_prev(const struct rb_node *node)
 {
 	struct rb_node *parent;
@@ -501,7 +492,6 @@ struct rb_node *rb_prev(const struct rb_node *node)
 	return parent;
 }
 
-
 void rb_replace_node(struct rb_node *victim, struct rb_node *new,
 		     struct rb_root *root)
 {
@@ -517,4 +507,3 @@ void rb_replace_node(struct rb_node *victim, struct rb_node *new,
 	/* Copy the pointers/colour from the victim to the replacement */
 	*new = *victim;
 }
-
