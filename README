@@ -1,0 +1,13 @@
+= RBTREE =
+
+The rbtree implimentation from the linux kernel, with filtering applied to
+allow it to be used in userspace when combined with ccan (just for
+container_of())
+
+For usage, see rbtree.txt (keep in mind that it is written towards the kernel impl)
+
+== Bugs ==
+
+ - *.version files are empty.
+ - don't have full git history for the imported files.
+ - external deps suck.
