@@ -16,7 +16,9 @@ for i in "${files[@]}"; do
 done
 
 sed -i '/^EXPORT_SYMBOL(.*);$/d' rbtree.c
-sed -i 's|#include <linux/rbtree_augmented.h>|#include <rbtree/rbtree_augmented.h>|' rbtree.c
+sed -i 's|#include <linux/rbtree_augmented.h>|#include <rbtree/rbtree_augmented.h>\
+#include <stdbool.h>\
+#include <rbtree/compiler.h>|' rbtree.c
 sed -i '/#include <linux.*>/d' rbtree.c
 
 
