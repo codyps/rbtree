@@ -24,7 +24,7 @@
 #ifndef _LINUX_RBTREE_AUGMENTED_H
 #define _LINUX_RBTREE_AUGMENTED_H
 
-#include <ccan/compiler/compiler.h>
+#include <rbtree/compiler.h>
 #include <rbtree/rbtree.h>
 
 /*

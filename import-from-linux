@@ -23,7 +23,7 @@ sed -i '/#include <linux.*>/d' rbtree.c
 sed -i 's|#include <linux/kernel\.h>|#include <ccan/container_of/container_of.h>|' rbtree.h
 sed -i 's|#include <linux/stddef\.h>|#include <stddef.h>|' rbtree.h
 
-sed -i 's|#include <linux/compiler\.h>|#include <ccan/compiler/compiler.h>|' rbtree_augmented.h
+sed -i 's|#include <linux/compiler\.h>|#include <rbtree/compiler.h>|' rbtree_augmented.h
 sed -i 's|#include <linux/rbtree\.h>|#include <rbtree/rbtree.h>|' rbtree_augmented.h
 
 #sed -i '/^#include <linux.*>$/d' rbtree.c
