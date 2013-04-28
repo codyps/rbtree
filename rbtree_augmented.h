@@ -24,8 +24,8 @@
 #ifndef _LINUX_RBTREE_AUGMENTED_H
 #define _LINUX_RBTREE_AUGMENTED_H
 
-#include <linux/compiler.h>
-#include <linux/rbtree.h>
+#include <ccan/compiler/compiler.h>
+#include <rbtree/rbtree.h>
 
 /*
  * Please note - only struct rb_augment_callbacks and the prototypes for
