@@ -1,0 +1,35 @@
+d72da4a rbtree: Make lockless searches non-fatal
+1b9c53e lib/rbtree.c: fix typo in comment of __rb_insert()
+9dee5c5 rbtree: add postorder iteration functions
+3cb7a56 lib/rbtree.c: avoid the use of non-static __always_inline
+9c079ad rbtree: move augmented rbtree functionality to rbtree_augmented.h
+9d9e6f9 rbtree: remove prior augmented rbtree implementation
+14b94af rbtree: faster augmented rbtree manipulation
+4f035ad rbtree: low level optimizations in rb_erase()
+46b6135 rbtree: handle 1-child recoloring in rb_erase() instead of rb_erase_color()
+60670b8 rbtree: place easiest case first in rb_erase()
+7abc704 rbtree: add __rb_change_child() helper function
+59633ab rbtree: optimize fetching of sibling node
+7ce6ff9 rbtree: coding style adjustments
+6280d23 rbtree: low level optimizations in __rb_erase_color()
+e125d14 rbtree: optimize case selection logic in __rb_erase_color()
+d6ff127 rbtree: adjust node color in __rb_erase_color() only when necessary
+5bc9188 rbtree: low level optimizations in rb_insert_color()
+6d58452 rbtree: adjust root color in rb_insert_color() only when necessary
+1f05286 rbtree: break out of rb_insert_color loop after tree rotation
+bf7ad8e rbtree: move some implementation details from rbtree.h to rbtree.c
+4c199a9 rbtree: empty nodes have no color
+8bc3bcc lib: reduce the use of module.h wherever possible
+0b6bb66 Export the augmented rbtree helper functions
+b945d6b rbtree: Undo augmented trees performance damage and regression
+17d9ddc rbtree: Add support for augmented rbtrees
+4b32412 rb_tree: remove redundant if()-condition in rb_erase()
+4c60117 rb_tree: make clear distinction between two different cases in rb_erase()
+16c047a rb_tree: reorganize code in rb_erase() for additional changes
+55a6399 lib/rbtree.c: optimize rb_erase()
+f4b477c rbtree: add const qualifier to some functions
+10fd48f [PATCH] rbtree: fixed reversed RB_EMPTY_NODE and rb_next/prev
+2f3243a [RBTREE] Switch rb_colour() et al to en_US spelling of 'color' for consistency
+55a9810 [RBTREE] Merge colour and parent fields of struct rb_node.
+1975e59 [RBTREE] Remove dead code in rb_erase()
+1da177e Linux-2.6.12-rc2

@@ -1,0 +1,9 @@
+c98be0c doc: spelling error changes
+9c079ad rbtree: move augmented rbtree functionality to rbtree_augmented.h
+14b94af rbtree: faster augmented rbtree manipulation
+2f17507 Documentation: Update augmented rbtree documentation
+17a9e7b Documentation: remove anticipatory scheduler info
+17d9ddc rbtree: Add support for augmented rbtrees
+1903423 trivial: rbtree.txt: fix rb_entry() parameters in sample code
+27af1da trivial: Documentation/rbtree.txt: cleanup kerneldoc of rbtree.txt
+c742b53 [PATCH] Documentation/rbtree.txt

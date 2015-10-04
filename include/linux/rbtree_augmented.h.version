@@ -1,0 +1,5 @@
+d72da4a rbtree: Make lockless searches non-fatal
+a841b65 rbtree: add comment to rb_insert_augmented()
+3cb7a56 lib/rbtree.c: avoid the use of non-static __always_inline
+29fc7c5 rbtree: include linux/compiler.h for definition of __always_inline
+9c079ad rbtree: move augmented rbtree functionality to rbtree_augmented.h

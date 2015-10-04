@@ -1,0 +1,26 @@
+2b50406 rbtree: clarify documentation of postorder_for_each
+d72da4a rbtree: Make lockless searches non-fatal
+7647f14 lib/rbtree.c: fix typo in comment
+1310a5a rbtree: fix rbtree_postorder_for_each_entry_safe() iterator
+2b52908 rbtree: add rbtree_postorder_for_each_entry_safe() helper
+9dee5c5 rbtree: add postorder iteration functions
+9c079ad rbtree: move augmented rbtree functionality to rbtree_augmented.h
+3908836 rbtree: add RB_DECLARE_CALLBACKS() macro
+9d9e6f9 rbtree: remove prior augmented rbtree implementation
+14b94af rbtree: faster augmented rbtree manipulation
+bf7ad8e rbtree: move some implementation details from rbtree.h to rbtree.c
+4c199a9 rbtree: empty nodes have no color
+1457d28 rbtree: reference Documentation/rbtree.txt for usage instructions
+88d19cf timers: Add rb_init_node() to allow for stack allocated rb nodes
+b945d6b rbtree: Undo augmented trees performance damage and regression
+c4fd308 Merge branch 'x86-pat-for-linus' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/linux-2.6-tip
+3e58974 doc: fix typo in comment explaining rb_tree usage
+17d9ddc rbtree: Add support for augmented rbtrees
+f4b477c rbtree: add const qualifier to some functions
+10fd48f [PATCH] rbtree: fixed reversed RB_EMPTY_NODE and rb_next/prev
+dd67d05 [PATCH] rbtree: support functions used by the io schedulers
+2f3243a [RBTREE] Switch rb_colour() et al to en_US spelling of 'color' for consistency
+e977145 [RBTREE] Add explicit alignment to sizeof(long) for struct rb_node.
+55a9810 [RBTREE] Merge colour and parent fields of struct rb_node.
+7fe1e13 [RBTREE] Add accessor macros for colour and parent fields of rb_node
+1da177e Linux-2.6.12-rc2

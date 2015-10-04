@@ -1,0 +1,34 @@
+#! /bin/sh
+set -eu -o pipefail
+
+e=0
+D="$(dirname "$0")"
+T=
+
+cleanup() {
+	if [ -n "$T" ]; then
+		rm -rf "$T"
+	fi
+}
+trap cleanup INT TERM QUIT EXIT
+
+T="$(mktemp -d)"
+
+: ${CC:=cc}
+: ${CFLAGS:=-Wall -Wextra -Wno-unused-parameter -Werror}
+
+for i in test/*.c; do
+	t=$(basename $i)
+	case "$t" in
+	run-*)
+		${CC} ${CFLAGS} -I "$D/include" "$D"/lib/rbtree.c "$i" -o "$T/$t.out" || { echo "compiling '$t' failed"; continue; }
+		"$T/$t.out" || echo "'$t': running failed with $?" 
+		;;
+	*)
+		2>&1 echo "unknown test kind '$t'"
+		: $((e=e+1))
+		;;
+	esac
+done
+
+exit $e

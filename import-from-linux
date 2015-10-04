@@ -1,33 +1,40 @@
 #! /bin/bash
+set -euf -o pipefail
 
-LINUX_GIT=$HOME/g/linux
+D="$(dirname "$0")"
+: ${LINUX_GIT:="$HOME/g/linux"}
 
 fh () {
 	echo fh $1 $2 1>&2
-	( cd "$1" && git show --pretty=format:%H "$2" | head -n1 )
+	( cd "$1" && git log --oneline "$2" )
+}
+
+show () {
+	printf '>'
+	for x in "$@"; do
+		printf " '%s'" "$(printf "%s" $x | sed "s/'/\\\\'/")"
+	done
+	echo
 }
 
 files=( include/linux/rbtree.h include/linux/rbtree_augmented.h \
 	lib/rbtree.c Documentation/rbtree.txt )
 
 for i in "${files[@]}"; do
-	cp $LINUX_GIT/$i .
-	fh "$LINUX_GIT" "$i" > $(basename $i).version
+	mkdir -p "$(dirname "$D/$i")"
+	cp $LINUX_GIT/$i "$D/$i"
+	fh "$LINUX_GIT" "$i" > "$D/$i.version"
 done
 
-sed -i '
-/^EXPORT_SYMBOL(.*);$/d
-s|#include <linux/rbtree_augmented.h>|#include <rbtree/rbtree_augmented.h>\
-#include <stdbool.h>\
-#include <rbtree/compiler.h>|
-/#include <linux.*>/d' rbtree.c
+sed \
+	-e 's|#include <linux/stddef\.h>|#include <stddef.h>|' \
+	-i include/linux/rbtree.h
 
-sed -i '
-s|#include <linux/kernel\.h>|#include <ccan/container_of/container_of.h>|
-s|#include <linux/stddef\.h>|#include <stddef.h>|' rbtree.h
-
-sed -i '
-s|#include <linux/compiler\.h>|#include <rbtree/compiler.h>|
-s|#include <linux/rbtree\.h>|#include <rbtree/rbtree.h>|' rbtree_augmented.h
+sed \
+	-e 's|\#include <linux/stddef\.h>|#include <stddef.h>|' \
+	-e '/^#include <linux\/export\.h>$/d' \
+	-e '/^EXPORT_SYMBOL(.*);$/d' \
+	-e '/include/ a#include <stdbool.h>' \
+	-i lib/rbtree.c
 
 #sed -i '/^#include <linux.*>$/d' rbtree.c
